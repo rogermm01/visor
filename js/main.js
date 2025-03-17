@@ -119,7 +119,7 @@ map.addLayer(limits_comarcals);
 //Addició de la capa 'estacions_automatiques_catalunya' al visor
 const estacions_automatiques_catalunya = new ol.layer.Vector({
     source: new ol.source.Vector({
-        url: '.geojson/estacions_automatiques_catalunya.geojson',
+        url: './geojson/estacions_automatiques_catalunya.geojson',
         format: new ol.format.GeoJSON()
     }),
     style: new ol.style.Style({
@@ -147,7 +147,7 @@ map.addLayer(estacions_automatiques_catalunya);
 
     //Definició de la interacció
     selectInteraction = new ol.interaction.Select({
-        condition: ol.events.condition.click,
+        condition: ol.events.condition.singleClick,
         layers: [estacions_automatiques_catalunya],
         style: selectStyle
     });
