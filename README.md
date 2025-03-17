@@ -15,7 +15,7 @@ Per contactar per qualsevol pregunta o suggerència, contactar per e-mail: roger
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 # Visor web
-Repositorio que contiene los archivos de configuración del visor web, que se puede consultar en el siguiente enlace: https://rogermm01.github.io/portfolio/.
+Repositorio que contiene los archivos de configuración del visor web, que se puede consultar en el siguiente enlace: [https://rogermm01.github.io/portfolio/](https://rogermm01.github.io/portfoli/).
 
 # Estructura del repositorio  
 - `/css/` → Archivos de tipo Cascading Style Sheets.
