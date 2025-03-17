@@ -19,8 +19,7 @@ const mylayers = [
             'VERSION': '1.3.0',
             'CRS': 'EPSG:3857'
           },
-          attributions: new ol.control.Attribution({
-            html: '© <a href="https://www.icgc.cat/">Institut Cartogràfic i Geològic de Catalunya (ICGC)</a>, sota llicència <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>'
+          attributions: '© <a href="https://www.icgc.cat/">Institut Cartogràfic i Geològic de Catalunya (ICGC)</a>, sota llicència <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>'
           })
         })
       }),
