@@ -18,7 +18,12 @@ const mylayers = [
             'FORMAT': 'image/png',
             'VERSION': '1.3.0',
             'SRS': 'EPSG:3857'
-          }
+          },
+          attributions: [
+            '© <a href="https://www.icgc.cat/">Institut Cartogràfic i Geològic de Catalunya (ICGC)</a>',
+            'Ortofoto de Catalunya de l’Institut Cartogràfic i Geològic de Catalunya (ICGC), sota una llicència CC BY 4.0.',
+            '© <a href="https://catnet-ip.icgc.cat/SBC/Account/ReadTermsOfUse">Condicions d\'ús de l\'ICGC</a>'
+          ]
         })
       }),
       new ol.layer.Tile({
