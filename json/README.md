@@ -1,7 +1,6 @@
 # Arxius GEOJSON (basat en JSON)
 Arxius que tenen la funció d'emmagatzemar i compartir dades geoespacials.
 
-# Estructura del repositori  
 - `/estacions_automatiques_catalunya.geojson/` → arxiu descarregat i exportat del Ministerio para la Transición Ecológica y el Reto Demográfico. La citació completa de la font es troba en el visor web ubicat en el següent enllaç: https://rogermm01.github.io/portfolio/.
 ______________________________________________
 
