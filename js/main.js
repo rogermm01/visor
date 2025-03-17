@@ -1,6 +1,6 @@
 //Definir la projecció EPSG:25831
 proj4.defs("EPSG:25831", "+proj=utm +zone=31 +datum=ETRS89 +units=m +no_defs");
-register(proj4);
+ol.proj.proj4.register(proj4);
 
 //Capes
 const mylayers = [
