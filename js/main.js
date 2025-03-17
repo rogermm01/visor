@@ -13,7 +13,7 @@ const mylayers = [
         type: 'base', //Tipus de capa
         opacity: 0.5,
         visible: false,
-		source: ol.source.TileWMS({
+        source: new ol.source.TileWMS({...})
           url: 'https://geoserveis.icgc.cat/servei/catalunya/mapa-base/wms?LAYERS=orto', //URL del servei WMS de l'ICGC
           params: {
             'FORMAT': 'image/png',
@@ -28,11 +28,11 @@ const mylayers = [
         })
 	   }),
       //Segona capa base (ICGC)
-      new TileLayer({
+      new ol.layer.Tile({ ... })({
         title: 'Base topogràfica (OSM)',
         type: 'base', //Tipus de capa
 		opacity: 0.5,
-        source: ol.source.OSM()
+        source: new ol.source.OSM()
       }),
     ]
   }),
@@ -103,7 +103,7 @@ const limits_comarcals = new ol.layer.Vector({
         format: new GeoJSON(),
         strategy: olLoadingstrategy.bbox
     }),
-    style: new ol.Style({
+    style: new ol.style.Style()({
         stroke: new ol.style.Stroke({
             color: 'black',
             width: 0.25
@@ -117,12 +117,12 @@ const limits_comarcals = new ol.layer.Vector({
 map.addLayer(limits_comarcals);
 
 //Addició de la capa 'estacions_automatiques_catalunya' al visor
-const estacions_automatiques_catalunya = new.ol.layer.Vector({
+const estacions_automatiques_catalunya = new ol.layer.Vector({
     source: new ol.source.Vector({
         url: '.geojson/estacions_automatiques_catalunya.geojson',
         format: new ol.format.GeoJSON()
     }),
-    style: new ol.Style({
+    style: new new ol.style.Style()({
         image: new ol.style.CircleStyle({ 
             radius: 6, 
             fill: new ol.style.Fill({
@@ -139,7 +139,7 @@ const estacions_automatiques_catalunya = new.ol.layer.Vector({
 map.addLayer(estacions_automatiques_catalunya);
 
 //Definició de l'estil de les entitats seleccionades
-    const selectStyle = new ol.Style({
+   const selectStyle = new ol.style.Style()({
         stroke: new ol.style.Stroke({
             color: 'red'
         }),
