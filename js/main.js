@@ -1,44 +1,19 @@
-//Llibreries importades d'OpenLayers
-import 'ol/ol.css';
-import { Map, View } from 'ol';
-import TileLayer from 'ol/layer/Tile';
-import OSM from 'ol/source/OSM';
-import TileWMS from 'ol/source/TileWMS';
-import LayerGroup from 'ol/layer/Group';
-import { defaults as defaultControls } from 'ol/control';
-import { OverviewMap } from 'ol/control';
-import VectorLayer from 'ol/layer/Vector.js';
-import VectorSource from 'ol/source/Vector.js';
-import GeoJSON from 'ol/format/GeoJSON.js';
-import {Style, Fill, Stroke, Circle as CircleStyle} from 'ol/style';
-import { register } from 'ol/proj/proj4';
-import { click } from 'ol/events/condition';
-import Select from 'ol/interaction/Select';
-import Overlay from 'ol/Overlay';
-import WFS from 'ol/format/WFS.js';
-import * as olLoadingstrategy from 'ol/loadingstrategy';
-
-//Libreries addicionals
-import proj4 from 'proj4';
-import LayerSwitcher from 'ol-layerswitcher';
-
-
 //Definir la projecció EPSG:25831
 proj4.defs("EPSG:25831", "+proj=utm +zone=31 +datum=ETRS89 +units=m +no_defs");
 register(proj4);
 
 //Capes
 const mylayers = [
-  new LayerGroup({
+  new ol.layer.Group({
     'title': 'Mapes base',
     layers: [
       //Primera capa base (OSM)
-	   new TileLayer({
+	   new ol.layer.Tile({
         title: 'Base ortofoto (ICGC)', //Títol de la capa
         type: 'base', //Tipus de capa
         opacity: 0.5,
         visible: false,
-		source: new TileWMS({
+		source: ol.source.TileWMS({
           url: 'https://geoserveis.icgc.cat/servei/catalunya/mapa-base/wms?LAYERS=orto', //URL del servei WMS de l'ICGC
           params: {
             'FORMAT': 'image/png',
@@ -57,7 +32,7 @@ const mylayers = [
         title: 'Base topogràfica (OSM)',
         type: 'base', //Tipus de capa
 		opacity: 0.5,
-        source: new OSM()
+        source: ol.source.OSM()
       }),
     ]
   }),
@@ -69,10 +44,10 @@ const extent = [
 398176.8700029906, 5307510.564674153 //Cantonada dreta superior
 ];
 
-const map = new Map({
+const map = new ol.Map({
   target: 'map',
   layers: mylayers, //Les capes han estat definides anteriorment
-  view: new View({
+  view: new ol.View({
     center: [195266.7433148799, 5115018.312157585], //EPSG:3857
     zoom: 8,
 	extent: extent
@@ -80,10 +55,10 @@ const map = new Map({
   
 //S'afegeix el control OverviewMap extenent els controls per defecte
    controls: defaultControls().extend([
-      new OverviewMap({
+      new ol.control.OverviewMap({
 	   layers: [
          new TileLayer({
-           source: new OSM()
+           source: new ol.source.OSM()
          })
        ]
       })
@@ -91,7 +66,7 @@ const map = new Map({
 })
 
 //Definició del control LayerSwitcher
-const layerSwitcher = new LayerSwitcher({
+const layerSwitcher = new ol.control.LayerSwitcher({
   tipLabel: 'Llegenda',
 });
 
@@ -114,8 +89,8 @@ layerSwitcher.showPanel();
 const SelectInteraction = new Select();
 
 //Addició de la capa 'limits_comarcals' al visor
-const limits_comarcals = new VectorLayer({
-    source: new VectorSource({
+const limits_comarcals = new ol.layer.Vector({
+    source: new ol.source.Vector({
         url: () => `
             https://geoserveis.icgc.cat/servei/catalunya/divisions-administratives/wfs?
             service=WFS&
@@ -128,12 +103,12 @@ const limits_comarcals = new VectorLayer({
         format: new GeoJSON(),
         strategy: olLoadingstrategy.bbox
     }),
-    style: new Style({
-        stroke: new Stroke({
+    style: new ol.Style({
+        stroke: new ol.style.Stroke({
             color: 'black',
             width: 0.25
         }),
-        fill: new Fill({
+        fill: new ol.style.Fill({
             color: 'rgba(0, 0, 0, 0)'
         })
     })
@@ -142,18 +117,18 @@ const limits_comarcals = new VectorLayer({
 map.addLayer(limits_comarcals);
 
 //Addició de la capa 'estacions_automatiques_catalunya' al visor
-const estacions_automatiques_catalunya = new VectorLayer({
-    source: new VectorSource({
-        url: 'http://localhost:3000/json/estacions_automatiques_catalunya.geojson',
-        format: new GeoJSON()
+const estacions_automatiques_catalunya = new new.ol.layer.Vector({
+    source: new ol.source.Vector({
+        url: '.geojson/estacions_automatiques_catalunya.geojson',
+        format: new ol.format.GeoJSON()
     }),
-    style: new Style({
-        image: new CircleStyle({ 
+    style: new ol.Style({
+        image: new ol.style.CircleStyle({ 
             radius: 6, 
-            fill: new Fill({
+            fill: new ol.style.Fill({
                 color: 'cornflowerblue' 
             }),
-            stroke: new Stroke({
+            stroke: new ol.style.Stroke({
                 color: 'white', 
                 width: 2
             })
@@ -164,14 +139,14 @@ const estacions_automatiques_catalunya = new VectorLayer({
 map.addLayer(estacions_automatiques_catalunya);
 
 //Definició de l'estil de les entitats seleccionades
-    const selectStyle = new Style({
-        stroke: new Stroke({
+    const selectStyle = new ol.Style({
+        stroke: new ol.style.Stroke({
             color: 'red'
         }),
     });
 
     //Definició de la interacció
-    selectInteraction = new Select({
+    selectInteraction = new ol.interaction.Select({
         condition: click,
         layers: [estacions_automatiques_catalunya],
         style: selectStyle
@@ -195,7 +170,7 @@ map.addLayer(estacions_automatiques_catalunya);
     });
 	
 //Creació del pop-up
-const popup_form = new Overlay({
+const popup_form = new ol.Overlay({
   element: document.getElementById('popup_container'),
   position: undefined
 })
@@ -240,6 +215,10 @@ function tancar_formulari() {
   amagarPopup();
   //Elimina la selecció del camí forestal
   eliminarSeleccio();
+}
+
+function eliminarSeleccio() {
+  selectInteraction.getFeatures().clear();
 }
 
 function eliminarSeleccio() {
