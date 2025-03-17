@@ -21,7 +21,6 @@ const mylayers = [
           },
           attributions: '© <a href="https://www.icgc.cat/">Institut Cartogràfic i Geològic de Catalunya (ICGC)</a>, sota llicència <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>'
           })
-        })
       }),
       new ol.layer.Tile({
         title: 'Base topogràfica (OSM)',
