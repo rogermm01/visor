@@ -58,7 +58,7 @@ const map = new ol.Map({
 });
 
 //Definició del control LayerSwitcher
-const layerSwitcher = new ol.control.LayerSwitcher({
+const layerSwitcher = new LayerSwitcher({
   tipLabel: 'Llegenda',
 });
 
