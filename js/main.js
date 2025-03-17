@@ -46,7 +46,7 @@ const map = new ol.Map({
     zoom: 8,
     extent: extent
   }),
-  controls: ol.control.defaults().extend([
+  controls: ol.control.defaults.defaults().extend([
     new ol.control.OverviewMap({
       layers: [
         new ol.layer.Tile({
