@@ -57,6 +57,27 @@ const map = new ol.Map({
   ])
 });
 
+//Definició del control LayerSwitcher
+const layerSwitcher = new ol.control.LayerSwitcher({
+  tipLabel: 'Llegenda',
+});
+
+//Addició del control al mapa
+map.addControl(layerSwitcher);
+
+//Eliminar el botó de col·lapse si existeix
+window.onload = function() {
+  //Trobar el botó de col·lapse per títol i eliminar-lo
+  const collapseButton = document.querySelector('.layer-switcher button[title="Collapse legend"]');
+  if (collapseButton) {
+    collapseButton.remove(); //Eliminar completament el botó
+  }
+};
+
+//El mostrem desplegat
+layerSwitcher.showPanel();
+
+
 // Capa de límits comarcals
 const limits_comarcals = new ol.layer.Vector({
   source: new ol.source.Vector({
