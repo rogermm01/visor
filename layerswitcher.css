@@ -1,0 +1,44 @@
+/* Importació de l'arxiu base per les capes 
+@import 'ol-layerswitcher/src/ol-layerswitcher.css';*/
+
+.layer-switcher {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  text-align: left;
+  font-size: 12.5px;
+  font-family: Arial, sans-serif;
+}
+
+.layer-switcher .panel {
+  margin: 0;
+  padding: 5px; /* Ajusta segons calgui */
+  border: 2px solid black;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: block;
+  max-height: inherit;
+  height: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.layer-switcher ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; /* Elimina qualsevol padding extra */
+}
+
+.layer-switcher li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.layer-switcher .panel .group > label {
+  font-weight: bold;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
