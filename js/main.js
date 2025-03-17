@@ -86,7 +86,7 @@ window.onload = function() {
 layerSwitcher.showPanel();
 
 //Afegim la selecció d'entitats
-const SelectInteraction = new Select();
+const selectInteraction = new Select();
 
 //Addició de la capa 'limits_comarcals' al visor
 const limits_comarcals = new ol.layer.Vector({
@@ -139,15 +139,15 @@ const estacions_automatiques_catalunya = new ol.layer.Vector({
 map.addLayer(estacions_automatiques_catalunya);
 
 //Definició de l'estil de les entitats seleccionades
-   const selectStyle = new ol.style.Style()({
+   const selectStyle = new ol.style.Style({
         stroke: new ol.style.Stroke({
-            color: 'red'
-        }),
+        color: 'red'
+        })
     });
 
     //Definició de la interacció
     selectInteraction = new ol.interaction.Select({
-        condition: ol.events.condition.singleClick,
+        condition: ol.events.condition.click,
         layers: [estacions_automatiques_catalunya],
         style: selectStyle
     });
