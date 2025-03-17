@@ -117,7 +117,7 @@ const limits_comarcals = new ol.layer.Vector({
 map.addLayer(limits_comarcals);
 
 //Addició de la capa 'estacions_automatiques_catalunya' al visor
-const estacions_automatiques_catalunya = new new.ol.layer.Vector({
+const estacions_automatiques_catalunya = new.ol.layer.Vector({
     source: new ol.source.Vector({
         url: '.geojson/estacions_automatiques_catalunya.geojson',
         format: new ol.format.GeoJSON()
