@@ -17,13 +17,11 @@ const mylayers = [
           params: {
             'FORMAT': 'image/png',
             'VERSION': '1.3.0',
-            'SRS': 'EPSG:3857'
+            'CRS': 'EPSG:3857'
           },
-          attributions: [
-            '© <a href="https://www.icgc.cat/">Institut Cartogràfic i Geològic de Catalunya (ICGC)</a>',
-            'Ortofoto de Catalunya de l’Institut Cartogràfic i Geològic de Catalunya (ICGC), sota una llicència CC BY 4.0.',
-            '© <a href="https://catnet-ip.icgc.cat/SBC/Account/ReadTermsOfUse">Condicions d\'ús de l\'ICGC</a>'
-          ]
+          attributions: new ol.Attribution({
+            html: '© <a href="https://www.icgc.cat/">Institut Cartogràfic i Geològic de Catalunya (ICGC)</a>, sota llicència <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>'
+          })
         })
       }),
       new ol.layer.Tile({
