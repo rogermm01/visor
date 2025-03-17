@@ -13,7 +13,7 @@ const mylayers = [
         type: 'base', //Tipus de capa
         opacity: 0.5,
         visible: false,
-        source: new ol.source.TileWMS({...})
+        source: new ol.source.TileWMS({
           url: 'https://geoserveis.icgc.cat/servei/catalunya/mapa-base/wms?LAYERS=orto', //URL del servei WMS de l'ICGC
           params: {
             'FORMAT': 'image/png',
@@ -28,10 +28,10 @@ const mylayers = [
         })
 	   }),
       //Segona capa base (ICGC)
-      new ol.layer.Tile({ ... })({
+      new ol.layer.Tile({
         title: 'Base topogràfica (OSM)',
         type: 'base', //Tipus de capa
-		opacity: 0.5,
+	opacity: 0.5,
         source: new ol.source.OSM()
       }),
     ]
@@ -103,7 +103,7 @@ const limits_comarcals = new ol.layer.Vector({
         format: new GeoJSON(),
         strategy: olLoadingstrategy.bbox
     }),
-    style: new ol.style.Style()({
+    style: new ol.style.Style({
         stroke: new ol.style.Stroke({
             color: 'black',
             width: 0.25
@@ -122,8 +122,8 @@ const estacions_automatiques_catalunya = new ol.layer.Vector({
         url: '.geojson/estacions_automatiques_catalunya.geojson',
         format: new ol.format.GeoJSON()
     }),
-    style: new new ol.style.Style()({
-        image: new ol.style.CircleStyle({ 
+    style: new ol.style.Style({
+        image: new ol.style.Circle({ 
             radius: 6, 
             fill: new ol.style.Fill({
                 color: 'cornflowerblue' 
@@ -147,7 +147,7 @@ map.addLayer(estacions_automatiques_catalunya);
 
     //Definició de la interacció
     selectInteraction = new ol.interaction.Select({
-        condition: click,
+        condition: ol.events.condition.click,
         layers: [estacions_automatiques_catalunya],
         style: selectStyle
     });
@@ -215,10 +215,6 @@ function tancar_formulari() {
   amagarPopup();
   //Elimina la selecció del camí forestal
   eliminarSeleccio();
-}
-
-function eliminarSeleccio() {
-  selectInteraction.getFeatures().clear();
 }
 
 function eliminarSeleccio() {
