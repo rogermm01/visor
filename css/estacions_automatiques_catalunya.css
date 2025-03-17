@@ -1,0 +1,82 @@
+/* Mida del mapa */
+#map{
+  width: 625px;
+  height: 625px;
+  border: 1px solid black; /* Marc negre fi d'1 píxel */
+}
+
+/* Fons de la pàgina */
+body {
+  background-color: #e4ebeb;
+  font-family: Arial, sans-serif, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Estils generals del popup */
+#popup_container {
+  display: none; /* El popup inicialment està amagat */
+  position: absolute; /* Posició absoluta per controlar el lloc del popup */
+  top: 30%; /* El popup es posiciona al 30% des de la part superior de la finestra */
+  left: 30%; /* El popup es posiciona al 30% des de la part esquerra de la finestra */
+  transform: translate(-50%, -50%); /* Centra el popup */
+  background: white; /* Fons blanc */
+  padding: 8px; /* Espai intern al voltant del contingut */
+  border-radius: 6px; /* Cantonades arrodonides */
+  border: 1px solid blue; /* Bord de color blau */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra per donar profunditat */
+  min-width: 200px; /* Amplada mínima del popup */
+  font-size: 12px; /* Mida de la lletra */
+  font-family: Arial, sans-serif; /* Tipus de lletra */
+}
+
+/* Contenidor de cada fila */
+.fila {
+  display: flex; /* Alinea els elements en fila (horitzontalment) */
+  align-items: center; /* Alinea verticalment els elements al centre */
+  justify-content: flex-start; /* Alinea els elements a l'esquerra */
+  margin-bottom: 3px; /* Espai entre les files */
+}
+
+/* Labels */
+#popup_form label {
+  font-weight: bold; /* Fa que els textos del label siguin gruixuts */
+  font-size: 11px; /* Mida de la lletra del label */
+  margin: 0; /* Elimina marges externs al voltant del label */
+  padding: 0; /* Elimina l'espai dins del label */
+  flex: 0 0 auto; /* El label ocupa només l'espai necessari, sense forçar-lo */
+  width: 50%; /* Amplada del label, ajustat perquè no ocupi massa espai */
+}
+
+/* Valors (el text mostrat al costat del label) */
+#popup_form span {
+  background: white; /* Fons blanc per al text */
+  border-radius: 3px; /* Cantonades arrodonides */
+  padding: 0 5px; /* Espai intern a l'esquerra i a la dreta per al text */
+  font-size: 10px; /* Mida de la lletra per als valors */
+  font-family: Arial, sans-serif; /* Tipus de lletra */
+  margin: 0; /* Elimina marges externs al voltant del span */
+  flex: 1; /* El span ocupa tot l'espai restant disponible */
+  text-align: left; /* Alinea el text a l'esquerra */
+}
+
+/* Botó de tancar */
+#tancar_formulari {
+  display: flex; /* Utilitza flexbox per centrar el contingut */
+  justify-content: center; /* Centra el text horitzontalment */
+  align-items: center; /* Centra el text verticalment */
+  width: 100%; /* Amplada del botó */
+  margin-top: 5px; /* Espai a sobre del botó */
+  padding: 4px; /* Espai intern dins del botó, augmentat per un millor centrament */
+  background: #007bff; /* Color de fons blau */
+  color: white; /* Color de la lletra blanc */
+  border: none; /* Elimina el bord per defecte */
+  border-radius: 3px; /* Cantonades arrodonides */
+  cursor: pointer; /* Fa que el cursor es converteixi en mà quan el botó està seleccionat */
+  font-size: 10px; /* Mida de la lletra del botó */
+}
+
+.cita-font {
+  font-size: 10px;
+  font-style: italic;
+}
