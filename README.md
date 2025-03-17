@@ -1,5 +1,5 @@
 # Visor web
-Repositori que conté els arxius configuradors del visor web que es pot consultar en el següent link: https://rogermm01.github.io/portfolio/.
+Repositori que conté els arxius configuradors del visor web que es pot consultar en el següent link: [https://rogermm01.github.io/portfolio/](https://rogermm01.github.io/portfoli/).
 
 # Estructura del repositori  
 - `/css/` → Arxius de tipus Cascading Style Sheets.
