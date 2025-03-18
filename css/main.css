@@ -2,6 +2,7 @@
 #map{
   width: 700px;
   height: 700px;
+  border: 1px solid black; /* Marc negre fi d'1 píxel */
 }
 
 /* Fons de la pàgina */
