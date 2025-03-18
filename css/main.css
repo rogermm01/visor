@@ -1,8 +1,7 @@
 /* Mida del mapa */
 #map{
-  width: 625px;
-  height: 625px;
-  border: 1px solid black; /* Marc negre fi d'1 píxel */
+  width: 650px;
+  height: 650px;
 }
 
 /* Fons de la pàgina */
